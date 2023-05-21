@@ -20,6 +20,10 @@ export class SignupComponent implements OnInit {
   constructor(private fb: FormBuilder, private auth: AuthService, private router: Router, private toaster: ToastrService) { }
 
   ngOnInit(): void {
+    const myToken = this.auth.getToken();
+    if (!!myToken) {
+      this.router.navigate(['dashboard']);
+    }
     this.signUpForm = this.fb.group({
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
@@ -46,7 +50,7 @@ export class SignupComponent implements OnInit {
     } else {
       //error using poster and requierd fields
       validateAllFormFileds(this.signUpForm);
-      this.toaster.warning( 'Your Form is invalid' );
+      this.toaster.warning('Your Form is invalid');
     }
   }
 }

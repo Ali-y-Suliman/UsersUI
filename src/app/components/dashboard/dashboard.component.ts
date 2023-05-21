@@ -15,8 +15,6 @@ export class DashboardComponent implements OnInit {
     const email = this.auth.getEmail();
     if(!!email){
       this.user = await this.apiService.getUser(email);
-      console.log(this.user)
-      //  await this.apiService.getUser(email);
     }
   }
 

@@ -6,16 +6,19 @@
     align-items: center;
 }
 
-p {
+.info-section {
     margin-top: 65px;
+}
+
+p {
     display: flex;
     justify-content: center;
     font-size: 40px;
-    color: #4343ff;
+    color: #FFF;
 }
 
 button {
-    width: 15%;
+    width: 100%;
     justify-content: center;
     display: flex;
 }

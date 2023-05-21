@@ -20,6 +20,10 @@ export class LoginComponent implements OnInit {
   constructor(private fb: FormBuilder, private auth: AuthService, private router: Router, private toaster: ToastrService) { }
 
   ngOnInit(): void {
+    const myToken = this.auth.getToken();
+    if (!!myToken) {
+      this.router.navigate(['dashboard']);
+    }
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required]
@@ -37,7 +41,7 @@ export class LoginComponent implements OnInit {
       //send obj
       const res = await this.auth.login(this.loginForm.value);
       this.loginForm.reset();
-      if (!!res){
+      if (!!res) {
         this.router.navigate(['dashboard']);
       }
       this.auth.storeToken(res.data.token, res.data.email);
@@ -45,7 +49,7 @@ export class LoginComponent implements OnInit {
     } else {
       //error using poster and requierd fields
       validateAllFormFileds(this.loginForm);
-      this.toaster.warning( 'Your Form is invalid' );
+      this.toaster.warning('Your Form is invalid');
     }
   }
 

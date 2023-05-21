@@ -1,4 +1,6 @@
 <div class="log-out">
-    <p>Hello {{user.data.firstName}} {{user.data.lastName}}</p>
-    <button (click)="logout()" class="btn btn-danger">Log out</button>
+    <div *ngIf="user" class="info-section">
+        <p>Hello {{user.data.firstName}} {{user.data.lastName}}</p>
+        <button (click)="logout()" class="btn btn-danger">Log out</button>
+    </div>
 </div>
