@@ -12,11 +12,15 @@ describe('SignupComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SignupComponent ],
-      imports: [ReactiveFormsModule, HttpClientModule, ToastrModule.forRoot(), RouterTestingModule],
+      declarations: [SignupComponent],
+      imports: [
+        ReactiveFormsModule,
+        HttpClientModule,
+        ToastrModule.forRoot(),
+        RouterTestingModule,
+      ],
       providers: [],
-    })
-    .compileComponents();
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -87,7 +91,9 @@ describe('SignupComponent', () => {
     form.controls['password'].setValue('testpassword');
     form.controls['confirmedPassword'].setValue('');
     expect(form.valid).toBeFalsy();
-    expect(form.controls['confirmedPassword'].hasError('required')).toBeTruthy();
+    expect(
+      form.controls['confirmedPassword'].hasError('required')
+    ).toBeTruthy();
   });
 
   it('Reactive Form Validation - Email Format validation', () => {

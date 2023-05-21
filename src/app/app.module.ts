@@ -17,7 +17,7 @@ import { TokenInterceptor } from './interceptors/token.interceptor';
     AppComponent,
     LoginComponent,
     SignupComponent,
-    DashboardComponent
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,
@@ -25,13 +25,21 @@ import { TokenInterceptor } from './interceptors/token.interceptor';
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    ToastrModule.forRoot( { timeOut: 9000, positionClass: 'toast-bottom-right', preventDuplicates: true, newestOnTop: false, progressBar: true } ),
+    ToastrModule.forRoot({
+      timeOut: 9000,
+      positionClass: 'toast-bottom-right',
+      preventDuplicates: true,
+      newestOnTop: false,
+      progressBar: true,
+    }),
   ],
-  providers: [{
-    provide: HTTP_INTERCEPTORS,
-    useClass: TokenInterceptor,
-    multi: true
-  }],
-  bootstrap: [AppComponent]
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true,
+    },
+  ],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

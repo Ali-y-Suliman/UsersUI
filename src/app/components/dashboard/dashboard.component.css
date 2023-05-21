@@ -1,24 +1,24 @@
-.log-out{
-    display: flex;
-    flex-direction: column;
-    height: 205px;
-    justify-content: space-between;
-    align-items: center;
+.log-out {
+  display: flex;
+  flex-direction: column;
+  height: 205px;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .info-section {
-    margin-top: 65px;
+  margin-top: 65px;
 }
 
 p {
-    display: flex;
-    justify-content: center;
-    font-size: 40px;
-    color: #FFF;
+  display: flex;
+  justify-content: center;
+  font-size: 40px;
+  color: #fff;
 }
 
 button {
-    width: 100%;
-    justify-content: center;
-    display: flex;
+  width: 100%;
+  justify-content: center;
+  display: flex;
 }
